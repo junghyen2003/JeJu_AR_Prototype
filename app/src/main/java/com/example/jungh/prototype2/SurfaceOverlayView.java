@@ -149,21 +149,21 @@ public class SurfaceOverlayView extends View implements SensorEventListener {
 
     // content_main의 coverLayout
     public void initLayout(){
-        mOverlayLayout = (LinearLayout)findViewById(R.id.coverLayout);
+        mOverlayLayout = (LinearLayout)findViewById(com.example.jungh.prototype2.R.id.coverLayout);
     }
 
     // 비트맵 아이콘 초기화 (초기에 호출)
     private void initBitmaps(){
-        mRestaurantBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_restaurant);
+        mRestaurantBitmap = BitmapFactory.decodeResource(getResources(), com.example.jungh.prototype2.R.drawable.ic_restaurant);
         mRestaurantBitmap = Bitmap.createScaledBitmap(mRestaurantBitmap, 200, 200, true);
 
-        mTouristBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_tourist);
+        mTouristBitmap = BitmapFactory.decodeResource(getResources(), com.example.jungh.prototype2.R.drawable.ic_tourist);
         mTouristBitmap = Bitmap.createScaledBitmap(mTouristBitmap, 200, 200, true);
 
-        mShoppingBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_shopping);
+        mShoppingBitmap = BitmapFactory.decodeResource(getResources(), com.example.jungh.prototype2.R.drawable.ic_shopping);
         mShoppingBitmap = Bitmap.createScaledBitmap(mShoppingBitmap, 200, 200, true);
 
-        mRestroomBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_restroom);
+        mRestroomBitmap = BitmapFactory.decodeResource(getResources(), com.example.jungh.prototype2.R.drawable.ic_restroom);
         mRestroomBitmap = Bitmap.createScaledBitmap(mRestroomBitmap, 200, 200, true);
     }
 

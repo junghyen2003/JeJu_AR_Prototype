@@ -13,6 +13,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import static android.os.Build.VERSION_CODES.M;
@@ -29,7 +31,9 @@ public class LogoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logo);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);  // 화면위 타이틀 없애기
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);  // 전체화면 만들기
+        setContentView(com.example.jungh.prototype2.R.layout.activity_logo);
         permission_check();
     }
 

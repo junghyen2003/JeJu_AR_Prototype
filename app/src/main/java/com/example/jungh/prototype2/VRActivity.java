@@ -19,13 +19,13 @@ public class VRActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vr);
+        setContentView(com.example.jungh.prototype2.R.layout.activity_vr);
 
         Intent intent = getIntent();
         themename = intent.getStringExtra("themename");
         vr_path = intent.getStringExtra("vr_path");
 
-        vrPanoramaView = (VrPanoramaView)findViewById(R.id.vr_PanoramaView);
+        vrPanoramaView = (VrPanoramaView)findViewById(com.example.jungh.prototype2.R.id.vr_PanoramaView);
 
         loadPanoImages();
 

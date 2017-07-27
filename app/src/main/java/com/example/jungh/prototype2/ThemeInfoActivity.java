@@ -12,10 +12,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.jungh.prototype2.model.LocationDetailModel;
-import com.example.jungh.prototype2.model.LocationModel;
 import com.example.jungh.prototype2.service.ResponseService;
-import com.example.jungh.prototype2.service.ServiceBuilder;
 import com.example.jungh.prototype2.youtube.YoutubeActivity;
+import com.example.jungh.prototype2.model.LocationModel;
+import com.example.jungh.prototype2.service.ServiceBuilder;
 
 import retrofit2.Response;
 import rx.Subscriber;
@@ -49,7 +49,7 @@ public class ThemeInfoActivity extends ActionBarActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_theme_info);
+        setContentView(com.example.jungh.prototype2.R.layout.activity_theme_info);
         //DBHandler 초기화
         mDBHandler = new DBHandler(this);
 
@@ -72,11 +72,11 @@ public class ThemeInfoActivity extends ActionBarActivity{
         //2017.03.18
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼 사용
         setTitle(themename); // 타이틀 바 이름 변경
-        ScrollView theme_info_scroll = (ScrollView)findViewById(R.id.theme_info_scroll);
+        ScrollView theme_info_scroll = (ScrollView)findViewById(com.example.jungh.prototype2.R.id.theme_info_scroll);
         theme_info_scroll.setVerticalScrollBarEnabled(true); // 스크롤 허용
 
         // vrButton
-        vrButton = (Button)findViewById(R.id.theme_info_vr_button);
+        vrButton = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button);
         if(vr_theme.equals("vr_image")) {
             vrButton.setText("360 VR 이미지 보기");
         }
@@ -108,14 +108,14 @@ public class ThemeInfoActivity extends ActionBarActivity{
     }
 
     public void layout_init(){
-        location_main_imageView1 = (ImageView)findViewById(R.id.location_main_imageView1);
-        location_main_imageView2 = (ImageView)findViewById(R.id.location_main_imageView2);
-        location_main_imageView3 = (ImageView)findViewById(R.id.location_main_imageView3);
-        location_summary_textView = (TextView)findViewById(R.id.location_summary_textView);
-        location_fee_textView = (TextView)findViewById(R.id.location_fee_textView);
-        location_operationTime_textView = (TextView)findViewById(R.id.location_operationTime_textView);
-        location_toilets = (ImageView)findViewById(R.id.location_toilets);
-        location_wifi = (ImageView)findViewById(R.id.location_wifi);
+        location_main_imageView1 = (ImageView)findViewById(com.example.jungh.prototype2.R.id.location_main_imageView1);
+        location_main_imageView2 = (ImageView)findViewById(com.example.jungh.prototype2.R.id.location_main_imageView2);
+        location_main_imageView3 = (ImageView)findViewById(com.example.jungh.prototype2.R.id.location_main_imageView3);
+        location_summary_textView = (TextView)findViewById(com.example.jungh.prototype2.R.id.location_summary_textView);
+        location_fee_textView = (TextView)findViewById(com.example.jungh.prototype2.R.id.location_fee_textView);
+        location_operationTime_textView = (TextView)findViewById(com.example.jungh.prototype2.R.id.location_operationTime_textView);
+        location_toilets = (ImageView)findViewById(com.example.jungh.prototype2.R.id.location_toilets);
+        location_wifi = (ImageView)findViewById(com.example.jungh.prototype2.R.id.location_wifi);
     }
 
     public void setLocationObject(int id){

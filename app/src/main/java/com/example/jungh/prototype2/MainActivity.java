@@ -69,18 +69,18 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(com.example.jungh.prototype2.R.layout.activity_main);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(com.example.jungh.prototype2.R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        SurfaceView surface = (SurfaceView)findViewById(R.id.surfaceView);
+        SurfaceView surface = (SurfaceView)findViewById(com.example.jungh.prototype2.R.id.surfaceView);
         mSurfaceView = new MainSurfaceView(this, surface);
-        ((LinearLayout)findViewById(R.id.surface_main)).addView(mSurfaceView);
+        ((LinearLayout)findViewById(com.example.jungh.prototype2.R.id.surface_main)).addView(mSurfaceView);
 
         mSurfaceOverlayView = new SurfaceOverlayView(this);
         SeekBar mSeekBar;
-        mSeekBar = (SeekBar)findViewById(R.id.seekBar);
+        mSeekBar = (SeekBar)findViewById(com.example.jungh.prototype2.R.id.seekBar);
         mSeekBar.setProgress(50);
         mSurfaceOverlayView.setmVisibleDistance(50);
         mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -101,9 +101,9 @@ public class MainActivity extends AppCompatActivity
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-        ((FrameLayout)findViewById(R.id.content_main)).addView(mSurfaceOverlayView);
+        ((FrameLayout)findViewById(com.example.jungh.prototype2.R.id.content_main)).addView(mSurfaceOverlayView);
 
-        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        final DrawerLayout drawer = (DrawerLayout) findViewById(com.example.jungh.prototype2.R.id.drawer_layout);
         // Drawer Menu가 SurfaceView 위에 뜨도록 해결
         drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
@@ -122,11 +122,11 @@ public class MainActivity extends AppCompatActivity
             }
         });
         //
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, com.example.jungh.prototype2.R.string.navigation_drawer_open, com.example.jungh.prototype2.R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(com.example.jungh.prototype2.R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         // GPS 관련
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus){
-        mcoverlayout = (LinearLayout)findViewById(R.id.coverLayout);
+        mcoverlayout = (LinearLayout)findViewById(com.example.jungh.prototype2.R.id.coverLayout);
         mwidth = mcoverlayout.getWidth();
         mheight = mcoverlayout.getHeight();
         // coverLayout width, height 크기를 넘겨줌
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(com.example.jungh.prototype2.R.menu.main, menu);
         return true;
     }
 
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == com.example.jungh.prototype2.R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -174,22 +174,22 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == com.example.jungh.prototype2.R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_restaurant) {
+        } else if (id == com.example.jungh.prototype2.R.id.nav_restaurant) {
             mSurfaceOverlayView.setTheme("restaurant");
-        } else if (id == R.id.nav_tourist) {
+        } else if (id == com.example.jungh.prototype2.R.id.nav_tourist) {
             mSurfaceOverlayView.setTheme("tourist");
-        } else if (id == R.id.nav_shopping) {
+        } else if (id == com.example.jungh.prototype2.R.id.nav_shopping) {
             mSurfaceOverlayView.setTheme("shopping");
-        } else if (id == R.id.nav_restroom){
+        } else if (id == com.example.jungh.prototype2.R.id.nav_restroom){
             mSurfaceOverlayView.setTheme("restroom");
-        } else if (id == R.id.nav_share) {
+        } else if (id == com.example.jungh.prototype2.R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == com.example.jungh.prototype2.R.id.nav_send) {
 
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(com.example.jungh.prototype2.R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
