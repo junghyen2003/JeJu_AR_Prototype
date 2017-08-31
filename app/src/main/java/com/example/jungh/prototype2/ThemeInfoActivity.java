@@ -40,11 +40,13 @@ public class ThemeInfoActivity extends ActionBarActivity{
     String themename;
     String vr_theme;
     String vr_path;
+    String vr_path2;
     String location_name;
     double lat;
     double lon;
     int tb_locations_id;
     Button vrButton;
+    Button vrButton2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,11 +79,17 @@ public class ThemeInfoActivity extends ActionBarActivity{
 
         // vrButton
         vrButton = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button);
+        vrButton2 = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button2);
         if(vr_theme.equals("vr_image")) {
             vrButton.setText("360 VR 이미지 보기");
+            vrButton2.setText("360 VR 이미지 보기 2");
+            String v[] = vr_path.split(",");
+            vr_path = v[0];
+            vr_path2 = v[1];
         }
         else if(vr_theme.equals("video")){
             vrButton.setText("Youtube 동영상 보기");
+            vrButton2.setVisibility(View.GONE);
         }
 
         vrButton.setOnClickListener(new Button.OnClickListener() {
@@ -99,6 +107,16 @@ public class ThemeInfoActivity extends ActionBarActivity{
                     i.putExtra("vr_path",vr_path);
                     startActivity(i);
                 }
+            }
+        });
+
+        vrButton2.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ThemeInfoActivity.this, VRActivity.class);
+                i.putExtra("themename", themename);
+                i.putExtra("vr_path",vr_path2);
+                startActivity(i);
             }
         });
 
