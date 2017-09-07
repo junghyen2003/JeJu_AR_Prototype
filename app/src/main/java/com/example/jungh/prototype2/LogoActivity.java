@@ -17,6 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import static android.os.Build.VERSION_CODES.KITKAT;
 import static android.os.Build.VERSION_CODES.M;
 
 public class LogoActivity extends AppCompatActivity {
@@ -39,7 +40,7 @@ public class LogoActivity extends AppCompatActivity {
 
     //권한 사용 체크
     public void permission_check() {
-        if (Build.VERSION.SDK_INT >= M) {
+        if (Build.VERSION.SDK_INT >= KITKAT) {
             // 권한이 없을 경우
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
