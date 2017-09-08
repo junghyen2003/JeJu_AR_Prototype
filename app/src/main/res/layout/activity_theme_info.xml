@@ -206,6 +206,71 @@
                 android:background="@drawable/button_custom"
                 android:text="VR 보기 2" />
 
+            <Button
+                android:id="@+id/theme_info_vr_button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_custom"
+                android:text="VR 보기 3" />
+            <Button
+                android:id="@+id/theme_info_vr_button4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_custom"
+                android:text="VR 보기 4" />
+            <Button
+                android:id="@+id/theme_info_vr_button5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_custom"
+                android:text="VR 보기 5" />
+            <Button
+                android:id="@+id/theme_info_vr_button6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_custom"
+                android:text="VR 보기 6" />
+            <Button
+                android:id="@+id/theme_info_vr_button7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_custom"
+                android:text="VR 보기 7" />
+            <Button
+                android:id="@+id/theme_info_vr_button8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_custom"
+                android:text="VR 보기 8" />
+            <Button
+                android:id="@+id/theme_info_vr_button9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_custom"
+                android:text="VR 보기 9" />
+            <Button
+                android:id="@+id/theme_info_vr_button10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_custom"
+                android:text="VR 보기 10" />
+
         </LinearLayout>
     </ScrollView>
 

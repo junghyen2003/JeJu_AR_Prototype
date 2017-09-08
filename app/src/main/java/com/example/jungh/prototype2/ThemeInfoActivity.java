@@ -1,8 +1,10 @@
 package com.example.jungh.prototype2;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +24,15 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
+abstract class newButtonOnClickListener implements Button.OnClickListener{
+        protected int count;
+
+        public newButtonOnClickListener(int count)
+        {
+            this.count = count;
+        }
+}
+
 public class ThemeInfoActivity extends ActionBarActivity{
 
     // Layout Object
@@ -39,14 +50,15 @@ public class ThemeInfoActivity extends ActionBarActivity{
     Intent intent;
     String themename;
     String vr_theme;
-    String vr_path;
-    String vr_path2;
+
+    String vr_path[]  = new String[10];
+
     String location_name;
     double lat;
     double lon;
     int tb_locations_id;
-    Button vrButton;
-    Button vrButton2;
+
+    Button vrButton[] = new Button[10];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +81,7 @@ public class ThemeInfoActivity extends ActionBarActivity{
         location_name = mDBRecord.getName();
         tb_locations_id = mDBRecord.getTb_locations_id();
         vr_theme = mDBRecord.getVr_theme();
-        vr_path = mDBRecord.getVr_path();
+        vr_path[0] = mDBRecord.getVr_path();
 
         //2017.03.18
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼 사용
@@ -78,47 +90,52 @@ public class ThemeInfoActivity extends ActionBarActivity{
         theme_info_scroll.setVerticalScrollBarEnabled(true); // 스크롤 허용
 
         // vrButton
-        vrButton = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button);
-        vrButton2 = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button2);
+        vrButton[0] = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button);
+        vrButton[1] = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button2);
+        vrButton[2] = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button3);
+        vrButton[3] = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button4);
+        vrButton[4] = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button5);
+        vrButton[5] = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button6);
+        vrButton[6] = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button7);
+        vrButton[7] = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button8);
+        vrButton[8] = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button9);
+        vrButton[9] = (Button)findViewById(com.example.jungh.prototype2.R.id.theme_info_vr_button10);
+
+        // 버튼 숨김
+        for(int i = 0; i < 10; i++){
+            vrButton[i].setVisibility(View.GONE);
+        }
+
+        // vr 이미지 경로 등록
         if(vr_theme.equals("vr_image")) {
-            vrButton.setText("360 VR 이미지 보기");
-            vrButton2.setText("360 VR 이미지 보기 2");
-            String v[] = vr_path.split(",");
-            vr_path = v[0];
-            vr_path2 = v[1];
+            String v[] = vr_path[0].split(",");
+            for(int count = 0; count < v.length; count++){
+                vr_path[count] = v[count];
+                vrButton[count].setVisibility(View.VISIBLE);
+                vrButton[count].setOnClickListener(new newButtonOnClickListener(count) {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(ThemeInfoActivity.this, VRActivity.class);
+                        i.putExtra("themename", themename);
+                        i.putExtra("vr_path",vr_path[count]);
+                        startActivity(i);
+                    }
+                });
+            }
         }
         else if(vr_theme.equals("video")){
-            vrButton.setText("Youtube 동영상 보기");
-            vrButton2.setVisibility(View.GONE);
-        }
-
-        vrButton.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(vr_theme.equals("vr_image")) {
-                    Intent i = new Intent(ThemeInfoActivity.this, VRActivity.class);
-                    i.putExtra("themename", themename);
-                    i.putExtra("vr_path",vr_path);
-                    startActivity(i);
-                }
-                else if(vr_theme.equals("video")) {
+            vrButton[0].setText("Youtube 동영상 보기");
+            vrButton[0].setVisibility(View.VISIBLE);
+            vrButton[0].setOnClickListener(new newButtonOnClickListener(0) {
+                @Override
+                public void onClick(View v) {
                     Intent i = new Intent(ThemeInfoActivity.this, YoutubeActivity.class);
                     i.putExtra("location_name", location_name);
-                    i.putExtra("vr_path",vr_path);
+                    i.putExtra("vr_path",vr_path[count]);
                     startActivity(i);
                 }
-            }
-        });
-
-        vrButton2.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ThemeInfoActivity.this, VRActivity.class);
-                i.putExtra("themename", themename);
-                i.putExtra("vr_path",vr_path2);
-                startActivity(i);
-            }
-        });
+            });
+        }
 
         layout_init();
         setLocationObject(tb_locations_id);
